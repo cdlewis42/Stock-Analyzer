@@ -1,9 +1,9 @@
 //This will need to be put in an on click function
-
+var keywords; //placeholder for user input.
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://amazon-price1.p.rapidapi.com/search?keywords=puppies&marketplace=ES",
+    "url": "https://amazon-price1.p.rapidapi.com/search?keywords=" + keywords + "&marketplace=ES",
     "method": "GET",
     "headers": {
         "x-rapidapi-host": "amazon-price1.p.rapidapi.com",
