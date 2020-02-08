@@ -1,0 +1,27 @@
+header {
+    text-align: center;
+    background: cornflowerblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+ 
+ }
+ 
+ h5 {
+     font-size: 30px;
+     color: indianred;
+     font-weight: 600;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+ }
+ 
+ body {
+     background: url("https://cdn.pixabay.com/photo/2015/10/22/15/59/magnifying-glass-1001506_1280.jpg");
+ }
+ 
+ td {
+     background: white;
+     opacity: 0.7;
+ 
+ }
+ 
+ .fa fa-apple {
+     color: grey;
+ }
