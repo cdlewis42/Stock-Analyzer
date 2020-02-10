@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MorningStar</title>
+</head>
+
+<body>
+    <div class="stockWebaddy"></div>
+    <div class="industryType"></div>
+    <div class="divNum"></div>
+    <div class="divValue"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var compProfile = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://morningstar1.p.rapidapi.com/companies/get-company-profile?Ticker=ftv&Mic=XNYS",
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "morningstar1.p.rapidapi.com",
+                "x-rapidapi-key": "8248f357ccmshfce4d2b5fce7fb1p15e9dcjsnb6778b5d7f0f",
+                "accept": "string"
+            }
+        }
+
+        $.ajax(compProfile).done(function (tickerSymbol) {
+            console.log(tickerSymbol);
+            console.log(tickerSymbol.result.industry.value)
+            console.log(tickerSymbol.result.mostRecentEarnings.label)
+            console.log(tickerSymbol.result.mostRecentEarnings.value)
+            console.log(tickerSymbol.result.contact.url)
+
+            $(".stockWebaddy").html("<h1>" + tickerSymbol.result.contact.url + " Click here to go to the web</h1>");
+            $(".industryType").text("what products does this company make: " + tickerSymbol.result.industry.value);
+
+        });
+
+        var dividens = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://morningstar1.p.rapidapi.com/dividends?Ticker=FTV&Mic=XNYS",
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "morningstar1.p.rapidapi.com",
+                "x-rapidapi-key": "8248f357ccmshfce4d2b5fce7fb1p15e9dcjsnb6778b5d7f0f",
+                "accept": "string"
+            }
+        }
+
+        $.ajax(dividens).done(function (newResponce) {
+            console.log(newResponce);
+            console.log("number of Dividens " + newResponce.total)
+            console.log("Value of Dividen " + newResponce.results[0].amount)
+            $(".divNum").text("How many Dividends " + newResponce.total);
+            $(".divValue").text("Value of the Dividen each qtr " + newResponce.results[0].amount);
+        });
+
+        var ratioStats = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://morningstar1.p.rapidapi.com/keyratios/statistics?Ticker=ftv&Mic=XNYS",
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "morningstar1.p.rapidapi.com",
+                "x-rapidapi-key": "8248f357ccmshfce4d2b5fce7fb1p15e9dcjsnb6778b5d7f0f",
+                "accept": "string"
+            }
+        }
+
+        $.ajax(ratioStats).done(function (statsResponse) {
+            console.log(statsResponse);
+        });
+
+    </script>
+
+
+</body>
+
+</html>

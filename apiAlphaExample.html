@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AlphaA</title>
+</head>
+
+<body>
+    <div class="stockWebaddy"></div>
+    <div class="price"></div>
+    <div class="priceLow"></div>
+    <div class="divValue"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var queryURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=FTV&apikey=6OWUHCRKZBKLS6YY";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+            // We store all of the retrieved data inside of an object called "response"
+            .then(function (response) {
+
+                // Log the queryURL
+                console.log(queryURL);
+
+                // Log the resulting object
+                console.log(response);
+                console.log(response["Meta Data"]["2. Symbol"] + " is the Stock symbol you have searched");
+                console.log(response["Time Series (Daily)"]["2020-02-07"]["3. low"] + "  is the low for this stock");
+
+                $(".priceLow").text("The current Low Price is : " + response["Time Series (Daily)"]["2020-02-07"]["3. low"]);
+
+            });
+        var queryQuote = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=FTV&apikey=6OWUHCRKZBKLS6YY";
+
+        $.ajax({
+            url: queryQuote,
+            method: "GET"
+        })
+            // We store all of the retrieved data inside of an object called "response"
+            .then(function (response) {
+
+                // Log the queryURL
+                console.log(queryQuote);
+                console.log(response);
+                console.log(response["Global Quote"]["05. price"] + "  Is the current price of " + response["Global Quote"]["01. symbol"]);
+
+                $(".stockWebaddy").html("<h1>" + response["Global Quote"]["01. symbol"] +
+                 " Click here to go to the web</h1>");
+
+                $(".price").text("The current Price is : " + response["Global Quote"]["05. price"]);
+
+            });
+
+
+
+    </script>
+
+
+</body>
+
+</html>

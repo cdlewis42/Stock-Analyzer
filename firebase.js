@@ -8,5 +8,10 @@ $(document).ready(function(){
             messagingSenderId: "243750173140",
             appId: "1:243750173140:web:ee97836b0fe030ee257e41"
           };  
+        // need our fire base intializer
+        firebase.initializeApp(firebaseconfig);
+
+// Create a variable to reference the database
+var database = firebase.database();
 
 });
