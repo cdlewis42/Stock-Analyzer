@@ -26,12 +26,13 @@ header {
      position: relative;
      padding: 10px 75px;
      background: #cd5c5c;
-     color:powderblue;
-     margin-left: auto;
-     margin-right: auto;
+     margin: 5px;
+    
  }
  .button :hover{
-     color: red;
+     color: black;
+     font-size: large;
+     background: seagreen;
  }
 
  #btn {
@@ -39,10 +40,23 @@ header {
      background-color: powderblue;
      font-family: 'Courier New', Courier, monospace;
      font-weight: 400;
+     Margin: 5px;
+     padding: 10px;
+    
+     
  }
 
- h6 {
-     color: pink;
+ 
+ i .fa {
+     margin: 5px;
  }
  
+ a .fa{
+     margin: 10px;
+     
+ }
+
+ .btn .btn-primary button {
+     background: coral;
+ }
  
