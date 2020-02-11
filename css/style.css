@@ -60,3 +60,16 @@ header {
      background: coral;
  }
  
+ #add {
+     float: right;
+     font-weight: 600;
+     color: blanchedalmond;
+ }
+ #add :hover{
+     color: darkgreen;
+ }
+ 
+ #submit{
+     color: blanchedalmond;
+     font-weight: 600;
+ }
