@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var firebaseConfig = {
+
         apiKey: "AIzaSyAqrxz9cVwxBcDv7lxISU2BGXI7fFj0yMg",
         authDomain: "stockanalyser-73716.firebaseapp.com",
         databaseURL: "https://stockanalyser-73716.firebaseio.com",
@@ -10,5 +11,7 @@ $(document).ready(function(){
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
+
+   
 
 });
